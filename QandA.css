@@ -1,0 +1,28 @@
+body{
+    text-align: center;
+}
+
+
+#q{
+    margin-bottom: 20px;
+    border-color: aqua;
+    font-size: 20px;
+}
+
+#sub{
+    background-color: aqua;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+#tex{
+    margin-bottom: 20px;
+    font-size: 20px;
+    border-color: green;
+}
+
+#img{
+    background-color: aqua;
+    margin-bottom: 20px;
+    font-size: 20px;
+}

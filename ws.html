@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>  <title>QandA</title>
+        <link rel="stylesheet" type="text/css" href="QandA.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+        </head> 
+<body style="background:url('back.png')">
+
+<nav class="navbar navbar-inverse navbar-fixed-top" id="navi">
+
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand navbar-link"><img src="icon.png"/></a>
+				<a href="#" class="navbar-brand navbar-link">AgricultureGeek </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav">
+                    <li role="presentation" class="active"><a href="3.html">Home</a></li>
+				<!--	<li role="presentation" class="active"><a href="predict.html">Apply for loan</a></-->
+                 	<!--   <li role="presentation"><a id ="e" href="">My Profile</a></li></-->
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <br><br>
+
+<div class="w3-panel w3-teal" style="margin-top: 0">
+	<h2 class="w3-center">Welcome to FarmFlow</h2>
+</div>
+<div class="w3-container">
+	<div class="w3-center" style="margin-top: 10%">
+		<input class="w3-btn w3-green w3-round w3-text-black w3-large w3-margin" type="button" id ="0" value ="sector 0" style="width: 10%">
+		<input type="button" class="w3-btn w3-green w3-round w3-text-black w3-large w3-margin" id ="1" value="sector 1" style="width: 10%">
+		<input type="button" class="w3-btn w3-green w3-round w3-text-black w3-large w3-margin" id ="2" value="sector 2" style="width: 10%">
+		<input type="button" class="w3-btn w3-green w3-round w3-text-black w3-large w3-margin" id ="3" value="sector 3" style="width: 10%">
+		<input type="button" class="w3-btn w3-green w3-round w3-text-black w3-large w3-margin" id ="4" value="sector 4" style="width: 10%"><br>
+		
+		<input type="button" class="w3-btn w3-green w3-round w3-text-black w3-large w3-margin" id ="012" value="Optimized" style="width: 10%"><br>
+		
+	</div>
+</div>
+<script type="text/javascript">
+	document.getElementById('0').addEventListener('click', function() {
+		window.location = "change.html"
+        });
+	document.getElementById('1').addEventListener('click', function() {
+		window.location = "change1.html"
+        });
+	document.getElementById('2').addEventListener('click', function() {
+		window.location = "change2.html"
+        });
+	document.getElementById('3').addEventListener('click', function() {
+		window.location = "change3.html"
+        });
+	document.getElementById('4').addEventListener('click', function() {
+		window.location = "change4.html"
+        });
+	document.getElementById('5').addEventListener('click', function() {
+		window.location = "change5.html"
+        });
+	document.getElementById('012').addEventListener('click', function() {
+		window.location = "change4 (1).html"
+        });
+
+        </script>
+
+</body>
+</html>

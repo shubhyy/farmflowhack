@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <title>QandA</title>
+        <link rel="stylesheet" type="text/css" href="QandA.css">
+        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCE9MZQeDNRNK0gdX55jM4N06Zfz-uMnN8",
+    authDomain: "hackproj-d9ff5.firebaseapp.com",
+    databaseURL: "https://hackproj-d9ff5.firebaseio.com",
+    projectId: "hackproj-d9ff5",
+    storageBucket: "hackproj-d9ff5.appspot.com",
+    messagingSenderId: "1012032288606"
+  };
+  firebase.initializeApp(config);
+</script>
+    </head> 
+
+
+        <body>
+
+
+            
+            <select name="ques" id="q">
+                <option value="" disabled selected>Select type of Question....</option>
+                <option value="Question related to crop production">Question related to crop production</option>
+                <option value="Question for crop">Question related to crop production</option>
+                <option value="Question for crop">Question related to crop production</option>
+            </select><br>
+            <textarea id="tex" rows="4" cols="50" id="tex"></textarea><br/>
+            <p style="font-size: 20px">Upload an Image Related to Question....</p><br/>
+            <input type="file" id="img"/><br/>
+            <button id="sub">Submit</button>
+        </body>
+    <script>
+        var sub=document.getElementById("sub");
+        var upb=document.getElementById("img");
+        var db=firebase.database().ref().push();
+        //var userId=firebase.auth().currentUser.uid
+        var file;
+		upb.addEventListener('change',function(e){
+		file=e.target.files[0];
+        });
+        sub.addEventListener('click',e=>{
+        var type=document.getElementById("q").value;
+        var tex=document.getElementById("tex").value;
+        console.log(type);
+        console.log(tex);
+        //db.child("UserId").set(userId);
+        db.child("type").set(type);
+        db.child("tex").set(tex);
+		var stref=firebase.storage().ref("myfiles/"+file.name);
+		var task=stref.put(file);
+		task.on('state_changed',		
+			function progress(snap)
+			{
+                var downurl=snap.downloadURL;   
+                console.log(downurl);
+                db.child('imageUrl').set(downurl);
+			},
+		);
+        });
+    </script>
+</html>

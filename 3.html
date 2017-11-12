@@ -1,0 +1,158 @@
+<html>
+    <head>
+        <title>QandA</title>
+        <link rel="stylesheet" type="text/css" href="QandA.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <script src="https://www.gstatic.com/firebasejs/4.6.2/firebase.js"></script>
+        </head> 
+        <body>
+
+ <nav class="navbar navbar-inverse navbar-fixed-top" id="navi">
+
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a href="#" class="navbar-brand navbar-link"><img src="icon.png"/></a>
+				<a href="#" class="navbar-brand navbar-link">AgricultureGeek </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav">
+                    <li role="presentation" class="active"><a href="3.html">Home</a></li>
+				<!--	<li role="presentation" class="active"><a href="predict.html">Apply for loan</a></-->
+                    <li role="presentation"><a id="i" href="home.html">Log Out</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <br><br><br><br><br><br>       <br>
+           <h3>Enter quantity to upload </h3>
+            <input type="text" id="amount"/><br/>
+<h4>Credit score is </h4>
+	<h4 id="credit">Credit</h4>
+              <button id="cp">Check Price</button>
+              <h4>Price is </h4>
+                            <h4 id="value">Value </h4>
+
+
+
+
+              <button id="sub">Submit</button>
+
+        </body>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAbA8QYEnZWVg-h_2pkKiooRlYNEb8p_NQ",
+    authDomain: "farmflow-466e3.firebaseapp.com",
+    databaseURL: "https://farmflow-466e3.firebaseio.com",
+    projectId: "farmflow-466e3",
+    storageBucket: "farmflow-466e3.appspot.com",
+    messagingSenderId: "94332562358"
+  };
+  firebase.initializeApp(config);
+
+  document.getElementById("i").addEventListener('click',e=>{
+  	      window.location.href = "home.html";
+
+firebase.auth().signOut();
+      window.location.href = "home.html";
+
+       
+
+  });
+
+
+var id =  localStorage.getItem("userUid");
+var mAmount;
+  
+      var x,y;
+      var k,l;
+
+        var sub=document.getElementById("sub");
+        var ch  = document.getElementById("cp");
+        
+
+         ch.addEventListener('click',e=>{
+
+        mAmount=document.getElementById("amount").value;
+        k = parseInt(mAmount);
+
+
+console.log(id);
+console.log(mAmount);
+     var firebaseRef= firebase.database();
+
+
+         firebaseRef.ref('/Student/' + id).once('value', function(snapshot){
+       x = snapshot.val().credit;
+                        l = parseInt(x);
+
+
+      document.getElementById("credit").innerHTML = l;
+
+      y = k * l;
+
+      document.getElementById("value").innerHTML = y;
+     });
+                 console.log(k);
+console.log(l);
+
+
+       });
+
+
+        sub.addEventListener('click',e=>{
+
+        mAmount=document.getElementById("amount").value;
+        k = parseInt(mAmount);
+
+
+console.log(id);
+console.log(mAmount);
+     var firebaseRef= firebase.database();
+
+
+         firebaseRef.ref('/Student/' + id).once('value', function(snapshot){
+       x = snapshot.val().credit;
+                        l = parseInt(x);
+
+
+      console.log(l);
+
+      y = k * l;
+console.log(y);
+write(y);
+                  });
+                 console.log(k);
+console.log(l);
+
+
+
+       });
+
+
+function write( d){
+	     var firebaseRef= firebase.database();
+
+     firebaseRef.ref('Student/'  +  id).update({
+      
+      amount:mAmount,
+      flag:1,
+      price:d
+
+   
+  }).then(function(){
+
+  });
+
+}	
+
+    </script>
+</html>
