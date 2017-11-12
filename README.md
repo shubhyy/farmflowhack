@@ -5,6 +5,7 @@ This project is about  to increase  amount of profit for farmers regarding selli
 We have designed an algorithm so that logistic/transporatation  can be optimised between farmers and factories.
 
 
+
 # Connection of our Project with the agriculture theme:
 We have implemented the marketing and production management
 
@@ -19,3 +20,6 @@ Devendra Naik - Likes to make  music
 Shubham Jaiswal - Still finding
 
 Rahul Das - Reading about new softwares
+
+# Screenshots
+Screenshots are uploaded on master branch of this repository.
